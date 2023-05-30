@@ -1,0 +1,31 @@
+body {
+    background: #dbdbdb;
+}
+
+.calendar-container {
+    background: #ffffff;
+    margin: 50% auto;
+    border-radius: 5% 5% 25% 5%;
+    padding: 1.2rem;
+}
+
+.arrow-and-gray-line {
+    margin-top: 3rem;
+}
+
+.gray-line {
+    margin-top: 2rem;
+    height: 0.1rem;
+    width: 100%;
+    background: #dbdbdb;;
+}
+
+#arrow-image {
+    position: relative;
+    bottom: 3.6rem;
+    margin: 2rem 45%;
+    width: 3rem;
+    height: 3rem;
+    background: #854dff;
+    border-radius: 50%;
+}
