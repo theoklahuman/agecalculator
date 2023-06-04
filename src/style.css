@@ -1,69 +1,104 @@
 @font-face {
-    font-family: poppins-bold;
-    src: url("./fonts/Poppins-Bold.ttf");
-
+  font-family: poppins-bold;
+  src: url("./fonts/Poppins-Bold.ttf");
 }
 
 @font-face {
-    font-family: poppins-regular;
-    src: url("./fonts/Poppins-Regular.ttf");
+  font-family: poppins-regular;
+  src: url("./fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: poppins-extrabold;
+  src: url("./fonts/Poppins-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: poppins-extrabold-italic;
+  src: url("./fonts/Poppins-ExtraBoldItalic.ttf");
 }
 
 body {
-    background: #dbdbdb;
+  background: #dbdbdb;
 }
 
 .calendar-container {
-    background: #ffffff;
-    margin: 50% auto;
-    border-radius: 5% 5% 25% 5%;
-    padding: 1.2rem;
+  background: #ffffff;
+  margin: 50% auto;
+  border-radius: 5% 5% 25% 5%;
+  padding: 1.2rem;
 }
 
 .user-input-area {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
-
 
 #month,
 #day,
 #year {
-    font-family: poppins-bold;
-    color: #716f6f;
-    width: 25%;
+  font-family: poppins-bold;
+  color: #716f6f;
+  width: 25%;
 }
 
 input {
-    font-family: poppins-bold;
-    margin-top: 0.3rem;
-    box-shadow: none;
-    border: 1px solid #dbdbdb;
-    width: 100%;
-    border-radius: 0.5rem;
-    height: 2rem;
-    text-align: center;
-    color: black;
+  font-family: poppins-bold;
+  margin-top: 0.3rem;
+  box-shadow: none;
+  border: 1px solid #dbdbdb;
+  width: 100%;
+  border-radius: 0.5rem;
+  height: 2rem;
+  text-align: center;
+  color: black;
 }
 
 .arrow-and-gray-line__container {
-    margin-top: 3rem;
-    height: 3rem;
+  margin-top: 3rem;
+  height: 3rem;
 }
 
 .gray-line {
-    margin-top: 2rem;
-    height: 0.1rem;
-    width: 100%;
-    background: #dbdbdb;;
+  margin-top: 2rem;
+  height: 0.1rem;
+  width: 100%;
+  background: #dbdbdb;
 }
 
 #arrow-image {
-    position: relative;
-    bottom: 3.6rem;
-    margin: 2rem 45%;
-    width: 3rem;
-    height: 3rem;
-    background: #854dff;
-    border-radius: 50%;
+  position: relative;
+  bottom: 3.6rem;
+  margin: 2rem 45%;
+  width: 3rem;
+  height: 3rem;
+  background: #854dff;
+  border-radius: 50%;
 }
+
+.years-display,
+.months-display,
+.days-display {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.years-display__info,
+.months-display__info,
+.days-display__info {
+  color: #854dff;
+  font-family: poppins-extrabold-italic;
+}
+
+.invalid-input {
+  border: 1px solid #ff5757;
+}
+
+.invalid-date {
+  color: #ff5757;
+}
+
+/* input {
+  border: 2px solid green;
+} */

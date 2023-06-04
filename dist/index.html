@@ -14,20 +14,44 @@
   </head>
   <body>
     <div class="calendar-container">
-      <div class="user-input-area">
+      <form action="" class="user-input-area">
         <div id="month">
-          <label for="month">DAY</label>
-          <input type="number" name="" id="" placeholder="MM" />
+          <label class="label" for="month">MONTH</label>
+          <input
+            type="number"
+            name=""
+            id="month-input"
+            min="1"
+            max="12"
+            placeholder="MM"
+            required
+          />
         </div>
         <div id="day">
-          <label for="day"> MONTH </label>
-          <input type="number" name="" id="" placeholder="DD" />
+          <label class="label" for="day">DAY</label>
+          <input
+            type="number"
+            name=""
+            id="day-input"
+            min="1"
+            max="31"
+            placeholder="DD"
+            required
+          />
         </div>
         <div id="year">
-          <label for="year"> YEAR </label>
-          <input type="number" name="" id="" placeholder="YYYY" />
+          <label class="label" for="year">YEAR</label>
+          <input
+            type="number"
+            name=""
+            id="year-input"
+            min="1900"
+            max="2023"
+            placeholder="YYYY"
+            required
+          />
         </div>
-      </div>
+      </form>
       <div class="arrow-and-gray-line__container">
         <div class="gray-line"></div>
         <img
@@ -36,9 +60,18 @@
           alt="arrow pointing down"
         />
       </div>
-      <h2>XX years</h2>
-      <h2>XX months</h2>
-      <h2>XX days</h2>
+      <div class="years-display">
+        <h2 class="years-display__info">- -</h2>
+        <h2>years</h2>
+      </div>
+      <div class="months-display">
+        <h2 class="months-display__info">- -</h2>
+        <h2>months</h2>
+      </div>
+      <div class="days-display">
+        <h2 class="days-display__info">- -</h2>
+        <h2>days</h2>
+      </div>
     </div>
   </body>
 </html>
