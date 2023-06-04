@@ -4,17 +4,10 @@ import image from "../assets/images/icon-arrow.svg";
 import { intervalToDuration } from "date-fns";
 
 let newDate;
-let enteredYear = 1978;
-let enteredMonth = 4;
-let enteredDay = 11;
-// newDate = new Date(enteredYear, enteredMonth, enteredDay);
-// const currentDate = new Date();
-
-// const age = intervalToDuration({ start: newDate, end: currentDate });
-
-// console.log(age);
-// console.log(age.months);
-// console.log(age.days);
+let enteredYear = 1970;
+let enteredMonth = 1;
+let enteredDay = 1;
+let age;
 
 const arrowImage = document.getElementById("arrow-image");
 arrowImage.src = image;
@@ -52,7 +45,7 @@ function checkInputValidity() {
 
 function getMonthValue() {
   checkInputValidity();
-  enteredMonth = inputMonth.value;
+  enteredMonth = inputMonth.value - 1;
   getAge();
 }
 
@@ -72,25 +65,30 @@ inputMonth.addEventListener("input", getMonthValue);
 inputDay.addEventListener("input", getDayValue);
 inputYear.addEventListener("input", getYearValue);
 
-function logInput() {
-  console.log(inputMonth.value);
-  console.log(inputDay.value);
-  console.log(inputYear.value);
-}
-
 function displayAge() {
   const yearsDisplayInfo = document.querySelector(".years-display__info");
   const monthsDisplayInfo = document.querySelector(".months-display__info");
   const daysDisplayInfo = document.querySelector(".days-display__info");
 
-  yearsDisplayInfo.textContent = "this is a test";
-  monthsDisplayInfo.textContent = "03";
-  daysDisplayInfo.textContent = "25";
+  if (
+    inputDay.className === "invalid-input" ||
+    inputMonth.className === "invalid-input" ||
+    inputYear.className === "invalid-input"
+  ) {
+    console.log("age is invalid!");
+    yearsDisplayInfo.textContent = "- -";
+    monthsDisplayInfo.textContent = "- -";
+    daysDisplayInfo.textContent = "- -";
+  } else {
+    yearsDisplayInfo.textContent = age.years;
+    monthsDisplayInfo.textContent = age.months;
+    daysDisplayInfo.textContent = age.days;
+  }
 }
 
 function getAge() {
   newDate = new Date(enteredYear, enteredMonth, enteredDay);
   const currentDate = new Date();
-  const age = intervalToDuration({ start: newDate, end: currentDate });
-  console.log(age);
+  age = intervalToDuration({ start: newDate, end: currentDate });
+  displayAge();
 }
