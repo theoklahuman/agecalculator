@@ -54,6 +54,11 @@ input {
   color: black;
 }
 
+input:focus {
+  border: 1px solid #854dff;
+  outline: none;
+}
+
 .arrow-and-gray-line__container {
   margin-top: 3rem;
   height: 3rem;
@@ -98,7 +103,3 @@ input {
 .invalid-date {
   color: #ff5757;
 }
-
-/* input {
-  border: 2px solid green;
-} */
