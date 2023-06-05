@@ -3,12 +3,6 @@ import "../assets/images/favicon-32x32.png";
 import image from "../assets/images/icon-arrow.svg";
 import { intervalToDuration } from "date-fns";
 
-let newDate;
-let enteredYear = 1970;
-let enteredMonth = 1;
-let enteredDay = 1;
-let age;
-
 const arrowImage = document.getElementById("arrow-image");
 arrowImage.src = image;
 const labels = document.querySelectorAll(".label");
@@ -17,6 +11,12 @@ const inputMonth = document.getElementById("month-input");
 const inputDay = document.getElementById("day-input");
 const inputYear = document.getElementById("year-input");
 
+let newDate;
+let enteredYear = 1970;
+let enteredMonth = 1;
+let enteredDay = 1;
+let age;
+
 function checkInputValidity() {
   if (
     inputDay.value < 1 ||
@@ -24,7 +24,7 @@ function checkInputValidity() {
     inputMonth.value < 1 ||
     inputMonth.value > 12 ||
     inputYear.value < 1900 ||
-    inputYear.value > 2024
+    inputYear.value > 2023
   ) {
     inputDay.classList.add("invalid-input");
     inputMonth.classList.add("invalid-input");
@@ -44,51 +44,85 @@ function checkInputValidity() {
 }
 
 function getMonthValue() {
-  checkInputValidity();
   enteredMonth = inputMonth.value - 1;
-  getAge();
+  return enteredMonth;
 }
 
 function getDayValue() {
-  checkInputValidity();
   enteredDay = inputDay.value;
-  getAge();
+  return enteredDay;
 }
 
 function getYearValue() {
-  checkInputValidity();
   enteredYear = inputYear.value;
-  getAge();
+  return enteredYear;
 }
 
-inputMonth.addEventListener("input", getMonthValue);
-inputDay.addEventListener("input", getDayValue);
-inputYear.addEventListener("input", getYearValue);
-
-function displayAge() {
-  const yearsDisplayInfo = document.querySelector(".years-display__info");
-  const monthsDisplayInfo = document.querySelector(".months-display__info");
-  const daysDisplayInfo = document.querySelector(".days-display__info");
-
+inputMonth.addEventListener("input", () => {
+  checkInputValidity();
   if (
     inputDay.className === "invalid-input" ||
     inputMonth.className === "invalid-input" ||
     inputYear.className === "invalid-input"
   ) {
-    console.log("age is invalid!");
-    yearsDisplayInfo.textContent = "- -";
-    monthsDisplayInfo.textContent = "- -";
-    daysDisplayInfo.textContent = "- -";
+    displayAgeInvalid();
   } else {
-    yearsDisplayInfo.textContent = age.years;
-    monthsDisplayInfo.textContent = age.months;
-    daysDisplayInfo.textContent = age.days;
+    getMonthValue();
+    getAge();
+    displayAgeValid();
   }
+});
+inputDay.addEventListener("input", () => {
+  checkInputValidity();
+  if (
+    inputDay.className === "invalid-input" ||
+    inputMonth.className === "invalid-input" ||
+    inputYear.className === "invalid-input"
+  ) {
+    displayAgeInvalid();
+  } else {
+    getDayValue();
+    getAge();
+    displayAgeValid();
+  }
+});
+inputYear.addEventListener("input", () => {
+  checkInputValidity();
+  if (
+    inputDay.className === "invalid-input" ||
+    inputMonth.className === "invalid-input" ||
+    inputYear.className === "invalid-input"
+  ) {
+    displayAgeInvalid();
+  } else {
+    getYearValue();
+    getAge();
+    displayAgeValid();
+  }
+});
+
+function displayAgeValid() {
+  const yearsDisplayInfo = document.querySelector(".years-display__info");
+  const monthsDisplayInfo = document.querySelector(".months-display__info");
+  const daysDisplayInfo = document.querySelector(".days-display__info");
+
+  yearsDisplayInfo.textContent = age.years;
+  monthsDisplayInfo.textContent = age.months;
+  daysDisplayInfo.textContent = age.days;
+}
+
+function displayAgeInvalid() {
+  const yearsDisplayInfo = document.querySelector(".years-display__info");
+  const monthsDisplayInfo = document.querySelector(".months-display__info");
+  const daysDisplayInfo = document.querySelector(".days-display__info");
+
+  yearsDisplayInfo.textContent = "- -";
+  monthsDisplayInfo.textContent = "- -";
+  daysDisplayInfo.textContent = "- -";
 }
 
 function getAge() {
   newDate = new Date(enteredYear, enteredMonth, enteredDay);
   const currentDate = new Date();
   age = intervalToDuration({ start: newDate, end: currentDate });
-  displayAge();
 }
