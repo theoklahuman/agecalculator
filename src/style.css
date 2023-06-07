@@ -29,6 +29,15 @@ body {
   padding: 1.2rem;
 }
 
+.month-error,
+  .invalid-date-error,
+  .day-error,
+  .year-error {
+    display: none;
+    color: #ff5757;
+    font-family: poppings-regular;
+  }
+
 .user-input-area {
   display: flex;
   justify-content: space-between;
@@ -102,4 +111,32 @@ input:focus {
 
 .invalid-date {
   color: #ff5757;
+}
+
+@media only screen and (min-width: 480px) {
+  .calendar-container {
+    background: #ffffff;
+    margin: 30% 10%;
+    border-radius: 2% 2% 25% 5%;
+    padding: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 865px) {
+  .calendar-container {
+    background: #ffffff;
+    margin: 15% 10%;
+    border-radius: 2% 2% 25% 5%;
+    padding: 1.2rem;
+  }
+ 
+}
+
+@media only screen and (min-width: 1000px) {
+  .calendar-container {
+    background: #ffffff;
+    margin: 15% 30%;
+    border-radius: 2% 2% 25% 5%;
+    padding: 1.2rem;
+  }
 }

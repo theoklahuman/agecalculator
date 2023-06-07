@@ -126,3 +126,82 @@ function getAge() {
   const currentDate = new Date();
   age = intervalToDuration({ start: newDate, end: currentDate });
 }
+
+// function testPromise(xPromise, yPromise) {
+//   return Promise.all( [xPromise, yPromise])
+
+//   .then( function(values)  {
+//     return values[1];
+// })
+// }
+
+// function getX() {
+//   let x = prompt("enter x", 1);
+//   return +x;
+// }
+
+// function getY() {
+//   let y = prompt("enter Y", 2);
+//   return +y;
+// }
+
+// testPromise(getX(), getY())
+// .then( function(result) {
+//   return result;
+// })
+
+// function tryPromise (trial) {
+//   return new Promise( function(resolve, reject) {
+//     resolve(trial * 3);
+//   })
+// }
+
+// let checkPromise = tryPromise(23);
+
+// function tryPromiseFunction(trialPromise) {
+//   trialPromise.then(
+//     function() {
+//       console.log(trialPromise);
+//     },
+//     function() {
+//       console.log("this is a reject");
+//     }
+//   );
+// }
+
+// tryPromiseFunction(checkPromise);
+
+// const trial = Promise.resolve( 11 );
+// trial.then(
+//   null,
+//   function rejected(err) {
+//     console.log(err);
+//   }
+// )
+
+// function add(xPromise, yPromise) {
+//   return new Promise ( function(resolve, reject){
+//     foo();
+//     resolve( [xPromise, yPromise] );
+//   })
+// }
+
+// function getX() {
+//   const xValue = prompt("enter X", 2);
+//   return +xValue;
+// }
+
+// function getY() {
+//   const yValue = prompt("enter Y", 3);
+//   return +yValue;
+// }
+
+// add(getX(), getY())
+// .then (function fulfilled(value){
+  
+// const result2 = value[0] + value[1];
+// console.log(result2);
+// }, 
+// function rejected(error){
+//   console.log(error);
+// })
