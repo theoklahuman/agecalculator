@@ -25,6 +25,8 @@
             placeholder="MM"
             required
           />
+          <div class="month-error">this field is required</div>
+      
         </div>
         <div id="day">
           <label class="label" for="day">DAY</label>
@@ -37,6 +39,7 @@
             placeholder="DD"
             required
           />
+          <div class="day-error">this field is required</div>
         </div>
         <div id="year">
           <label class="label" for="year">YEAR</label>
@@ -49,8 +52,10 @@
             placeholder="YYYY"
             required
           />
+          <div class="year-error">this field is required</div>
         </div>
       </form>
+      <div class="invalid-date-error">Must be a Valid Date</div>
       <div class="arrow-and-gray-line__container">
         <div class="gray-line"></div>
         <img
